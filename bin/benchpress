@@ -1,0 +1,5 @@
+#!perl
+
+use App::Benchpress;
+
+App::Benchpress->new_with_options->run;
