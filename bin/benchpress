@@ -1,4 +1,6 @@
-#!perl
+#!perl 
+
+# PODNAME: benchpress
 
 use App::Benchpress;
 
