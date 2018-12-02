@@ -1,4 +1,5 @@
 package App::Benchpress;
+# ABSTRACT: Benchmark framework
 
 use 5.20.0;
 use warnings;
