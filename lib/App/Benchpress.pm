@@ -15,6 +15,15 @@ use experimental qw/
 
 use DateTime::Functions qw/ now /;
 
+option I => (
+    is => 'ro',
+    isa => 'ArrayRef',
+    trigger => sub {
+        my( $self, $values ) = @_;
+        unshift @INC, @$values;
+    },
+);
+
 has env => (
     is => 'ro',
     default => sub {
