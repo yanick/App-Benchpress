@@ -63,10 +63,10 @@ sub run($self) {
     warn "starting to benchpress\n";
 
     my @suites = map {
-        return $_ unless s/::$//;
-
-        $self->search_path( new => $_ );
-        $self->plugins;
+        s/::$// ? do {
+            $self->search_path( new => $_ );
+            $self->plugins;
+        } : $_;
 
     } $self->all_suites;
 
