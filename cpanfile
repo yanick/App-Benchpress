@@ -4,6 +4,7 @@ requires "Dumbbench::Instance::PerlSub" => "0";
 requires "Hash::Merge" => "0";
 requires "JSON" => "0";
 requires "List::AllUtils" => "0";
+requires "Module::Pluggable" => "0";
 requires "Module::Runtime" => "0";
 requires "Moose" => "0";
 requires "Moose::Exporter" => "0";

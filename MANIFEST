@@ -16,6 +16,7 @@ doap.xml
 lib/App/Benchpress.pm
 lib/App/Benchpress/Instance.pm
 lib/App/Benchpress/Suite.pm
+notes
 t/00-compile.t
 t/00-report-prereqs.dd
 t/00-report-prereqs.t

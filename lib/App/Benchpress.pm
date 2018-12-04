@@ -29,6 +29,7 @@ has env => (
     default => sub {
         +{
             run_at => now->iso8601,
+            perl_version => "".$^V,
         }
     },
 );
@@ -56,10 +57,20 @@ has dumbbench => (
 );
 
 use JSON qw/ to_json /;
+use Module::Pluggable require => 1;
 
 sub run($self) {
     warn "starting to benchpress\n";
-    $self->add_suite($_) for $self->all_suites;
+
+    my @suites = map {
+        return $_ unless s/::$//;
+
+        $self->search_path( new => $_ );
+        $self->plugins;
+
+    } $self->all_suites;
+
+    $self->add_suite($_) for @suites;
     $self->run_bench;
     say to_json $_ for $self->report->@*;
 }
